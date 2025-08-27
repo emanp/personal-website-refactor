@@ -4,11 +4,6 @@ import waveBrigadeLogo from "../Images/WaveBrigadeLogo.png"
 import embeddedLogo from "../Images/embeddedLogo.png"
 
 
-interface IProjectTab {
-    title: string,
-    imgSrc: string,
-    // href: string,
-}
 
 export const BORDER_COLOR = "[#61136D]"
 
