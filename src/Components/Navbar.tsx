@@ -2,6 +2,7 @@
 import { FaGithub, FaLinkedin} from "react-icons/fa";
 import { FaMoon } from "react-icons/fa6";
 
+import { Link } from "react-router-dom";
 
 export default function Navbar(){
     return (
@@ -15,7 +16,7 @@ export default function Navbar(){
 
             <div className="text-lg flex-1 flex justify-center space-x-6">
                 <a className="hover:underline" href="/"> Home </a>
-                <a className="hover:underline" href="/portfolio"> Portfolio </a>
+                <Link className="hover:underline" to="/portfolio"> Portfolio </a>
                 {/* <a className="hover:underline" href="/inquiries"> Inquiries </a> */}
                 <a className="hover:underline" href="/contact"> Contact </a>
             </div>
