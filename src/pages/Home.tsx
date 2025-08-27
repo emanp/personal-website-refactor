@@ -2,7 +2,6 @@
 import {Button} from "@heroui/button";
 import ImagePill from "@/Components/ImagePill";
 
-import emanPic from "../Images/eman.jpeg"
 
 export default function Home(){
 

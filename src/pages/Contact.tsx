@@ -33,8 +33,6 @@ interface IEmailJSTemplateParams {
     reasonsForContact: string
 }
 
-type FormStates = "valid" | "invalid" | "error";
-
 
 export default function ContactPage() {
     const options: ContactReasonOptions = {
@@ -165,7 +163,7 @@ export default function ContactPage() {
                 setemailWasSent(false);
                 setFormWasSubmitted(false);
                 setEmailInErrorState(true);
-                console.log("Email was not sent");
+                console.log("Email was not sent", error);
             })
         }
 

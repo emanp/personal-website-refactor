@@ -13,15 +13,7 @@ interface IProjectTab {
 export const BORDER_COLOR = "[#61136D]"
 
 export default function ProjectTabList() {
-    const projectsList: IProjectTab[] = [
-    {
-        title: "WaveBrigade",
-        imgSrc: waveBrigadeLogo
-    }, 
-    {
-        title: "Swamp Cooler",
-        imgSrc: embeddedLogo
-    }];
+    
 
 
     return (
