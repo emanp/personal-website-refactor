@@ -1,5 +1,4 @@
 
-import abelPic from "../Images/abel.png";
 import emanPic from "../Images/eman.jpeg"
 
 export default function ImagePill() {

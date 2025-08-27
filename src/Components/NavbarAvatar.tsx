@@ -8,7 +8,7 @@ interface INavbarAvatarProps {
 
 }
 
-export default function NavbarAvatar({imgSrc, href, styling}: INavbarAvatarProps ){
+export default function NavbarAvatar({imgSrc, href}: INavbarAvatarProps ){
     return (
         <div>
             <a href={href} target="_blank" rel="noopener noreferrer">

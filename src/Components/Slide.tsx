@@ -15,7 +15,7 @@ interface SlideProps {
 
 }
 
-import { FaGithub, FaLinkedin, FaYoutube, FaInfoCircle, FaInfo } from "react-icons/fa";
+import { FaGithub, FaYoutube, FaInfoCircle } from "react-icons/fa";
 
 
 export default function Slide({ projectTitle, description, languages, frontend, backend, githubLink, youtubeLink, img, aboutLink, hardware}: SlideProps) {

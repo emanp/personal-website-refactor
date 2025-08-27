@@ -22,7 +22,6 @@ import { ContactReasonOptions, IFormData } from "@/Helpers/helpers"
 
 
 const HIDE_EMAILJS_PUBLIC_KEY = "HnBHTOaBI-PH419R8";
-const HIDE_EMAILJS_PRIVATE_KEY = "AuHi1E2CBh-t-SLGVhh58";
 const HIDE_EMAILJS_SERVICE_ID = "service_maznurf";
 const HIDE_EMAILJS_TEMPLATE_ID = "template_t8yivdx";
 
@@ -32,14 +31,6 @@ interface IEmailJSTemplateParams {
     message: string,
     email_from: string,
     reasonsForContact: string
-}
-
-
-interface ITextInputStates {
-    firstNameHasInput: boolean,
-    lastNameHasInput: boolean,
-    emailHasInput: boolean,
-    messageHasInput: boolean
 }
 
 type FormStates = "valid" | "invalid" | "error";
@@ -77,7 +68,6 @@ export default function ContactPage() {
     const [emailInput, setemailInput] = useState<string | null>(null);
     const [messageInput, setmessageInput] = useState<string | null>(null);
 
-    const [currentFormState, setCurrentFormState] = useState<FormStates>("invalid");
     const [emailIsValid, setemailIsValid] = useState<boolean>(false);
 
     const submitButtonDisabled = useMemo(() => {

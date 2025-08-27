@@ -1,12 +1,6 @@
 
-import NavbarAvatar from "./NavbarAvatar";
-import AbelPic from "../Images/abel.png";
-import LinkedInPic from "../Images/Linkedin.svg"
-import { FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa";
-import { TiSocialLinkedinCircular } from "react-icons/ti";
-
-import { FaMoon, FaLinkedinIn } from "react-icons/fa6";
-import { BsMoonStarsFill } from "react-icons/bs";
+import { FaGithub, FaLinkedin} from "react-icons/fa";
+import { FaMoon } from "react-icons/fa6";
 
 
 export default function Navbar(){

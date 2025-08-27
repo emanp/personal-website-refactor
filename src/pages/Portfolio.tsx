@@ -1,19 +1,9 @@
-import { Tabs, Tab } from "@heroui/tabs";
-import { useState } from "react";
-import type { Key } from "react";
-import abelpic from "../Images/abel.png"
-import { Button } from "@heroui/button";
-import apexExtinctionLogo from "../Images/Apex.png"
 import WaveBrigadeDemoImg from "../Images/wb-demo-lab.png"
 import apexPicCropped from "../Images/apex-pic-cropped.png"
-import { FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa";
-import { BORDER_COLOR } from "@/Components/ProjectTabList";
 import swampCoolerDemoPic from "../Images/swamp-cooler-demo.png"
-import emanPic from "../Images/eman.jpeg"
 
 export const TEXT_COLOR = "#C6BECF"
 
-import ProjectTabList from "@/Components/ProjectTabList";
 import Slide from "@/Components/Slide";
 
 

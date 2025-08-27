@@ -31,8 +31,3 @@ export function printArray(array: Array<unknown>){
     console.log(arrayText)
 
 }
-
-
-function sendEmail(){
-
-}
