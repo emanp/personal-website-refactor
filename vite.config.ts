@@ -11,4 +11,5 @@ export default defineConfig({
     tsconfigPaths(),
     tailwindcss(),
     svgr()],
+    base: process.env.VITE_BASE_PATH || "/personal-website-refactor"
 });
