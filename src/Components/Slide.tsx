@@ -21,15 +21,16 @@ import { FaGithub, FaYoutube, FaInfoCircle } from "react-icons/fa";
 export default function Slide({ projectTitle, description, languages, frontend, backend, githubLink, youtubeLink, img, aboutLink, hardware}: SlideProps) {
     return (
         
-            <div className="pb-5 border-3 border-[#61136D] rounded-2xl mb-5 flex flex-col md:flex-row items-center justify-between bg-[#0D0B1F] text-white p-5 gap-8">
+            <div className="bg-[rgba(217,217,217,0.07)] lg:pb-5 lg:bg-[#0D0B1F] lg:border-3 lg:border-[#61136D] rounded-2xl my-5 flex flex-col md:flex-row items-center justify-between text-white p-5 gap-8">
 
                 {/* Left side */}
-                <div className="md:w-1/2 space-y-6 ">
-                    <h1 className="text-3xl">{projectTitle}</h1>
+                <div className="md:w-1/2 space-y-6">
+                    <h1 className="text-3xl text-center lg:text-left">{projectTitle}</h1>
 
-                    <p className="text-lg text-justify">
+                    <p className="leading-relaxed text-justify md:text-lg md:text-justify">
                         {description}
                     </p>
+
 
                     <div className="text-md space-y-1">
                         <p><span className="font-semibold">Languages:</span> {languages}</p>
@@ -37,6 +38,13 @@ export default function Slide({ projectTitle, description, languages, frontend, 
                         {backend ? <p><span className="font-semibold">Backend:</span> {backend}</p> : null }
                         {hardware ? <p><span className="font-semibold">Hardware:</span> {hardware}</p> : null }
                     </div>
+                    <div className="md:hidden md:w-1/2 flex justify-center">
+                        <img
+                            src={img}
+                            alt="WaveBrigade"
+                            className="rounded-lg shadow-lg border border-gray-700 w-full max-w-xl md:max-h-80 bg-[#0D0B1F]"
+                        />
+                     </div>
 
                     {/* Socials */}
                     <div className="flex gap-4 pt-4 justify-center md:justify-start">
@@ -53,7 +61,7 @@ export default function Slide({ projectTitle, description, languages, frontend, 
                 </div>
 
                 {/* Right side */}
-                <div className="md:w-1/2 flex justify-center">
+                <div className="hidden md:w-1/2 md:flex justify-center">
                     <img
                         src={img}
                         alt="WaveBrigade"

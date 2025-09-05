@@ -5,25 +5,9 @@ import * as z from "zod"
 import emailjs from '@emailjs/browser';
 import { ContactReasonOptions, IFormData } from "@/Helpers/helpers"
 
-// August 5:
-// Don't let user submit unless all data has been properly validated and is not empty
-// Do not show "Thanks, I will reach out" message unless it has been sent. Use Promise/await
-// Show red border or something on the button when invalid submission
-
-
-// | **Goal**                      | **Tailwind Classes**                      | **Explanation**                                                  |
-// | ----------------------------- | ----------------------------------------- | ---------------------------------------------------------------- |
-// | Mobile only (`<640px`)        | `text-left sm:text-left md:text-left ...` | Use the base class and "reset" at higher breakpoints if needed.  |
-// | **Only `sm` (640px–767px)**   | `text-left sm:text-justify md:text-left`  | Add `sm:` and then "reset" at `md` so it doesn't inherit upward. |
-// | **Only `md` (768px–1023px)**  | `text-left md:text-justify lg:text-left`  | Same pattern: override at `md`, reset at `lg`.                   |
-// | **Only `lg` (1024px–1279px)** | `text-left lg:text-justify xl:text-left`  | Override at `lg`, then reset at `xl`.                            |
-// | **Only `xl` (1280px–1535px)** | `text-left xl:text-justify 2xl:text-left` | Override only for `xl`, then reset later.                        |
-
-
-
-const HIDE_EMAILJS_PUBLIC_KEY = "HnBHTOaBI-PH419R8";
-const HIDE_EMAILJS_SERVICE_ID = "service_maznurf";
-const HIDE_EMAILJS_TEMPLATE_ID = "template_t8yivdx";
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 
 
 interface IEmailJSTemplateParams {
@@ -82,19 +66,14 @@ export default function ContactPage() {
 
     useEffect(() =>
     {
-
-        console.log(emailIsValid);
-        console.log(JSON.stringify(emailSchema.safeParse(emailInput)))
-
         if (emailSchema.safeParse(emailInput).success === true){
             setemailIsValid(true)
         }
         else{
             setemailIsValid(false)
         }
-        // console.log(emailSchema.parse(emailInput))
-        // if (firstNameInput && lastNameInput && )
     }, [emailInput])
+
     //Validation Schema
     const emailSchema = z.email();
     
@@ -107,7 +86,6 @@ export default function ContactPage() {
     */
     const selectedOptionsStr: string = useMemo(() => {
         const selectedDropdownKeysArr = Array.from(selectedDropdownKeys) as (keyof ContactReasonOptions)[];
-        console.log("Selected DropDownKeys:" + JSON.stringify(selectedDropdownKeysArr))
 
         if (selectedDropdownKeysArr.length === 0) {
             return "Select"
@@ -124,9 +102,6 @@ export default function ContactPage() {
         setDropdownTouched(true);
         setSelectedDropdownKeys(keys as Set<string>);
     };
-
-
-
 
 
     function handleSubmit(e: React.FormEvent) {
@@ -152,25 +127,19 @@ export default function ContactPage() {
         
         
         //Email template: 
-        emailjs.send(HIDE_EMAILJS_SERVICE_ID, HIDE_EMAILJS_TEMPLATE_ID, templateParams as unknown as Record<string, unknown>, HIDE_EMAILJS_PUBLIC_KEY)
+        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams as unknown as Record<string, unknown>, EMAILJS_PUBLIC_KEY)
         .then(() => {
             setEmailInErrorState(false);
             setFormWasSubmitted(true);
             setemailWasSent(true);
-            console.log("Submitted: " + JSON.stringify(dataItem))
             })
             .catch((error) => {
                 setemailWasSent(false);
                 setFormWasSubmitted(false);
                 setEmailInErrorState(true);
-                console.log("Email was not sent", error);
+                console.log(error);
             })
         }
-
-
-        useEffect(() => {
-            console.log(firstNameInput)
-        }, [firstNameInput])
 
 
         // Keeps track of selectedDropDownKeys to see if the "other" button was clicked
@@ -199,8 +168,6 @@ export default function ContactPage() {
 
         return (
             <div>
-                {/* <p className="text-red-500 hidden">Hello umm okay thanks bye</p> */}
-
                 <div className="
                     md:pb-5
                     text-center
@@ -214,7 +181,7 @@ export default function ContactPage() {
                     xl:max-w-4xl
                    
                     ">
-                    <h1 className="md:mt-5 text-center text-2xl sm:text-3xl lg:text-4xl xl:text-5xl">Contact Me</h1>
+                    <h1 className="mt-5 text-center text-2xl sm:text-3xl lg:text-4xl xl:text-5xl">Contact Me</h1>
 
                     <p className="
                             mt-2 
